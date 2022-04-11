@@ -17,16 +17,54 @@ class RocketViewController: UIViewController {
     
     @IBOutlet weak var horizontalStackView: UIStackView!
     
-    
     @IBOutlet weak var settingsButtonOutlet: UIButton!
     
     @IBAction func settingsButtonTapped(_ sender: UIButton) {
     }
+
+    
+    
+    @IBOutlet weak var firstStartLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var costOfStart: UILabel!
+    
+    
+    
+    // __________________________________
+    
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-
+        
+        
+// Это ужасно, надо незабыть переделать!!!
+        let urlString = "https://api.spacexdata.com/v4/rockets"
+        guard let url = URL(string: urlString) else { return }
+        
+        URLSession.shared.dataTask(with: url) { [self] (data, response, error) in
+            if let error = error {
+                print("Ошибка запроса \(error)")
+            }
+            guard let data = data else {return}
+            do {
+                let rokets = try JSONDecoder().decode([Rocket].self, from: data)
+                print(rokets)
+                DispatchQueue.main.async {
+                    let rocketName = rokets.first
+                    self.nameOfRocketLabel.text = rocketName?.name
+                }
+                
+            }
+            catch {
+                print(error)
+            }
+        }.resume()
+        
+// Вот до сюда это точно ужасно!!!!!
+        
     }
 }
 
@@ -51,7 +89,7 @@ extension RocketViewController {
         nameOfRocketLabel.textColor = .white
         nameOfRocketLabel.font = UIFont(name: "Gothic", size: 30)
         nameOfRocketLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        nameOfRocketLabel.text = "Falcon Heavy"
+
     }
     
     func setupLayerForBoundedView(){

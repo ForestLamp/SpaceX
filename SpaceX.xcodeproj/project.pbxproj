@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F29237328046C5800BD7A8B /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29237228046C5800BD7A8B /* NetworkService.swift */; };
+		9F29237628046CAD00BD7A8B /* DataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F29237528046CAD00BD7A8B /* DataFetcher.swift */; };
 		9F83696B27FED7DD00A0544B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83696A27FED7DD00A0544B /* Model.swift */; };
 		9F83697027FEDAC100A0544B /* RocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F83696F27FEDAC100A0544B /* RocketViewController.swift */; };
 		9F83698327FF762800A0544B /* HorizontalParametersScrollView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F83698227FF762800A0544B /* HorizontalParametersScrollView.xib */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F29237228046C5800BD7A8B /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9F29237528046CAD00BD7A8B /* DataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcher.swift; sourceTree = "<group>"; };
 		9F83696A27FED7DD00A0544B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9F83696F27FEDAC100A0544B /* RocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RocketViewController.swift; sourceTree = "<group>"; };
 		9F83698227FF762800A0544B /* HorizontalParametersScrollView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HorizontalParametersScrollView.xib; sourceTree = "<group>"; };
@@ -43,6 +47,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F29237828046CBE00BD7A8B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				9F29237228046C5800BD7A8B /* NetworkService.swift */,
+				9F29237528046CAD00BD7A8B /* DataFetcher.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		9F83696D27FED7EF00A0544B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,7 @@
 				9F83696F27FEDAC100A0544B /* RocketViewController.swift */,
 				9F83698928002A8300A0544B /* Xib */,
 				9FA9664B27FC9EC20023FEEB /* Main.storyboard */,
+				9F29237828046CBE00BD7A8B /* Network */,
 				9F83696D27FED7EF00A0544B /* Model */,
 				9FA9664E27FC9EC40023FEEB /* Assets.xcassets */,
 				9FA9665027FC9EC40023FEEB /* LaunchScreen.storyboard */,
@@ -164,9 +178,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F83698627FF79C400A0544B /* HorizontalParameters.swift in Sources */,
+				9F29237628046CAD00BD7A8B /* DataFetcher.swift in Sources */,
 				9FA9664627FC9EC20023FEEB /* AppDelegate.swift in Sources */,
 				9F83697027FEDAC100A0544B /* RocketViewController.swift in Sources */,
 				9FA9664827FC9EC20023FEEB /* SceneDelegate.swift in Sources */,
+				9F29237328046C5800BD7A8B /* NetworkService.swift in Sources */,
 				9F83696B27FED7DD00A0544B /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
