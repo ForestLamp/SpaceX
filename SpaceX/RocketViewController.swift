@@ -56,7 +56,7 @@ extension RocketViewController {
     
     func setupLayerForBoundedView(){
         radialView.layer.masksToBounds = true
-        radialView.layer.cornerRadius = radialView.frame.height / 20
+        radialView.layer.cornerRadius = radialView.frame.height / 35
         radialView.backgroundColor = .black
 
     }
