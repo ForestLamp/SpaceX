@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  Rocket.swift
 //  SpaceX
 //
 //  Created by Alex Ch. on 07.04.2022.
@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Rocket: Decodable {
+struct Roket: Codable {
     let name: String // Название ракеты
     let firstFlight: String // первый запуск
     
