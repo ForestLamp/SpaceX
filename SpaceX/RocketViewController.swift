@@ -21,14 +21,35 @@ class RocketViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var costOfStart: UILabel!
     
-    private let parser = Parser()
+    private let networkService = NetworkService()
+    private var rockets: [Rocket] = []
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupViews()
-        parser.getData()
         
+        setupLabels()
+        setupViews()
+        fetchData()
+    }
+    
+    func fetchData(){
+        networkService.fetchData { (result) in
+            switch result {
+            case .success(let rockets):
+                DispatchQueue.main.async {
+                    self.rockets = rockets ?? []
+                    self.reloadUI()
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    
+    func reloadUI(){
+        nameOfRocketLabel.text = rockets.first?.name
+        firstStartLabel.text = rockets.first?.first_flight
     }
 }
 
@@ -38,7 +59,7 @@ extension RocketViewController {
     
     func setupViews(){
         setupLayerForBoundedView()
-        setupNameOfRocketLabel()
+        setupLabels()
         setupSettingsButton()
         addHorizontalScrollView()
         view.backgroundColor = .black
@@ -49,11 +70,10 @@ extension RocketViewController {
         settingsButtonOutlet.tintColor = .white
     }
     
-    func setupNameOfRocketLabel(){
+    func setupLabels(){
         nameOfRocketLabel.textColor = .white
         nameOfRocketLabel.font = UIFont(name: "Gothic", size: 30)
         nameOfRocketLabel.font = UIFont.boldSystemFont(ofSize: 20)
-
     }
     
     func setupLayerForBoundedView(){

@@ -8,18 +8,11 @@
 import Foundation
 
 
-struct Roket: Codable {
-    let name: String // Название ракеты
-    let firstFlight: String // первый запуск
+struct Rocket: Decodable {
+    let name: String
+    let first_flight: String 
     
-    
-    enum CodingKeys: String, CodingKey {
-        
-        case name
-        case firstFlight = "first_flight"
-    }
-    
-
+}
 //    let height, diameter: Diameter
 //    let mass: Mass
 //    let firstStage: FirstStage
@@ -160,5 +153,5 @@ struct Roket: Codable {
 //// MARK: - CompositeFairing
 //struct CompositeFairing: Decodable {
 //    let height, diameter: Diameter
-}
+
 
