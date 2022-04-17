@@ -20,21 +20,18 @@ class RocketViewController: UIViewController {
     @IBOutlet weak var firstStartLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var costOfStart: UILabel!
-    
     private let networkService = NetworkService()
     private var rockets: [Rocket] = []
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setupLabels()
+
         setupViews()
         fetchData()
     }
     
     func fetchData(){
-        networkService.fetchData { (result) in
+        networkService.fetchDataForRockets { (result) in
             switch result {
             case .success(let rockets):
                 DispatchQueue.main.async {

@@ -9,9 +9,11 @@ import UIKit
 
 class NetworkService {
     
-    private let baseURL = "https://api.spacexdata.com/v4/rockets"
     
-    func fetchData(completion: @escaping (Result<[Rocket]?, Error>) -> Void ){
+    
+    private let baseURL = Api().rocketsDataURL
+    
+    func fetchDataForRockets(completion: @escaping (Result<[Rocket]?, Error>) -> Void ){
         guard let url = URL(string: baseURL) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let error = error {

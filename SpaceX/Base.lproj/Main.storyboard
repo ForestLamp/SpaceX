@@ -144,6 +144,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
+                                                <connections>
+                                                    <segue destination="jBW-Bu-rCz" kind="presentation" modalPresentationStyle="fullScreen" id="ZbD-6L-az7"/>
+                                                </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="v9g-Z9-4WC">
                                                 <rect key="frame" x="30" y="355" width="325" height="101.5"/>
@@ -335,6 +338,7 @@
                             <constraint firstItem="9kb-T3-art" firstAttribute="top" secondItem="bN1-lc-LBi" secondAttribute="top" constant="-20" id="vPI-Nc-eMo"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="AMb-3E-WaX"/>
                     <size key="freeformSize" width="375" height="1050"/>
                     <connections>
                         <outlet property="costOfStart" destination="vqX-5J-aEt" id="lBk-Ho-uzf"/>
@@ -349,7 +353,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f6X-xt-g6a" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1636" y="73.763118440779621"/>
+            <point key="canvasLocation" x="2575.1999999999998" y="73.763118440779621"/>
+        </scene>
+        <!--Starts Table View Controller-->
+        <scene sceneID="Wt0-AO-rM9">
+            <objects>
+                <tableViewController id="swS-DD-00f" customClass="StartsTableViewController" customModule="SpaceX" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="4he-EZ-DKI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="1y0-cq-ggl">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="1y0-cq-ggl" id="JFv-hf-opK">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="swS-DD-00f" id="IM1-Pr-kD4"/>
+                            <outlet property="delegate" destination="swS-DD-00f" id="Fpc-pb-bcV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4iS-1q-eka">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="ElY-qh-jIK">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="swS-DD-00f" id="Xwo-AJ-KzQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="D7k-IW-TaR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4023" y="-99"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="daN-OH-bFe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jBW-Bu-rCz" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SKp-Uf-ZpI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="swS-DD-00f" kind="relationship" relationship="rootViewController" id="CZE-f6-tFg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k2K-KF-nMW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3311" y="-99"/>
         </scene>
     </scenes>
     <resources>
