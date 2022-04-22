@@ -11,5 +11,5 @@
 Асинхронная загрузка. <br>
 Приложение проверено на утечки памяти.<br>
 
-https://user-images.githubusercontent.com/60708718/164647245-ab8f4b29-ba15-4b36-9b93-ca5a5146cec3.mov
+https://user-images.githubusercontent.com/60708718/164711722-2d4f24c3-11b6-4e1c-952c-be52308c0f61.mov
 
