@@ -7,30 +7,40 @@
 
 import UIKit
 
-class RocketViewController: UIViewController {
+final class RocketViewController: UIViewController {
+    
+    // MARK: - Private properties
+    
+    private let networkService = NetworkService()
+    private var rockets: [Rocket] = []
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var radialView: UIView!
     @IBOutlet weak var nameOfRocketLabel: UILabel!
     @IBOutlet weak var horizontalScrollView: UIScrollView!
     @IBOutlet weak var horizontalStackView: UIStackView!
     @IBOutlet weak var settingsButtonOutlet: UIButton!
-    @IBAction func settingsButtonTapped(_ sender: UIButton) {
-    }
-
     @IBOutlet weak var firstStartLabel: UILabel!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var costOfStart: UILabel!
-    private let networkService = NetworkService()
-    private var rockets: [Rocket] = []
+    
+    // MARK: - Buttons
+    
+    @IBAction func settingsButtonTapped(_ sender: UIButton) {
+    }
+    
+    // MARK: - Life cicle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupViews()
         fetchData()
     }
     
-    func fetchData(){
+    // MARK: - Private methods
+    
+    private func fetchData(){
         networkService.fetchDataForRockets { (result) in
             switch result {
             case .success(let rockets):
@@ -44,17 +54,17 @@ class RocketViewController: UIViewController {
         }
     }
     
-    func reloadUI(){
+    private func reloadUI(){
         nameOfRocketLabel.text = rockets.first?.name
         firstStartLabel.text = rockets.first?.first_flight
     }
 }
 
-// MARK: - Setup layers
+// MARK: - Extensions
 
 extension RocketViewController {
     
-    func setupViews(){
+    private  func setupViews(){
         setupLayerForBoundedView()
         setupLabels()
         setupSettingsButton()
@@ -62,22 +72,21 @@ extension RocketViewController {
         view.backgroundColor = .black
     }
     
-    func setupSettingsButton(){
+    private func setupSettingsButton(){
         settingsButtonOutlet.backgroundColor = .black
         settingsButtonOutlet.tintColor = .white
     }
     
-    func setupLabels(){
+    private func setupLabels(){
         nameOfRocketLabel.textColor = .white
         nameOfRocketLabel.font = UIFont(name: "Gothic", size: 30)
         nameOfRocketLabel.font = UIFont.boldSystemFont(ofSize: 20)
     }
     
-    func setupLayerForBoundedView(){
+    private  func setupLayerForBoundedView(){
         radialView.layer.masksToBounds = true
         radialView.layer.cornerRadius = radialView.frame.height / 35
         radialView.backgroundColor = .black
-
     }
 }
 
@@ -85,7 +94,7 @@ extension RocketViewController {
 
 extension RocketViewController{
     
-    func addHorizontalScrollView(){
+    private func addHorizontalScrollView(){
         for _ in 0...3 {
             if let horizontalScrollView = Bundle.main.loadNibNamed("HorizontalParametersScrollView", owner: nil, options: nil)!.first as? HorizontalParameters {
                 horizontalScrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,5 +107,4 @@ extension RocketViewController{
             }
         }
     }
-
 }

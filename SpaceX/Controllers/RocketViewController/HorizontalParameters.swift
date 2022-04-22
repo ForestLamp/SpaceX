@@ -9,11 +9,7 @@ import UIKit
 
 
 class HorizontalParameters: UIView {
-    
+
     @IBOutlet weak var numericLabel: UILabel!
-    
     @IBOutlet weak var descriptionLabel: UILabel!
-    
-    
-    
 }
